@@ -3,6 +3,24 @@ import React, { useEffect, useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DisplayPets from './../components/DisplayPets';
 
+async function getZipcode() {
+  try {
+    const response = await axios.get("https://ipapi.co/json");
+    const data = response.data;
+    const zip = data.postal;
+    console.log("zip", zip);
+    if (/^\d{5}$/.test(zip)) {
+      return zip;
+    } else {
+      throw new Error("Invalid zipcode format");
+    }
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+
 const API_KEY = 'baDs8oID8IQUpYQra2skjNjP61EYh11AjnR8WgbuW0rl1bS611';
 const API_SECRET = 'KvPewNgFx2D8PXJMnI2ppPGanvqPNS2oP4trSHtj';
 const AUTH_ENDPOINT = 'https://api.petfinder.com/v2/oauth2/token';
@@ -14,12 +32,28 @@ function Index({
   animalType, 
   setAnimalType, selectedPet, 
   setSelectedPet, getPets, removeSpecChar,
-  deletePets, saveAnimalsData, dbAnimals, getAnimalsData }) {
- 
+  deletePets, saveAnimalsData, dbAnimals, getAnimalsData, user }) {
+  
 
+    console.log("user", user)
     const [zipcode, setZipcode] = useState('');
     const [isZipcodeProvided, setIsZipcodeProvided] = useState(false);
-  
+
+    useEffect(() => {
+      const getLocation = async () => {
+        try {
+          const zip = await getZipcode();
+          setZipcode(zip);
+          setIsZipcodeProvided(true);
+        } catch (error) {
+          console.error(error);
+          setIsZipcodeProvided(false);
+        }
+      };
+      getLocation();
+    }, []);
+
+
     const handleZipcodeChange = (event) => {
       setZipcode(event.target.value);
     };
