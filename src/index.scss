@@ -159,6 +159,7 @@ background-color: #ffc0ad;
   // put into cards with name on top, image in middle, and age, gender, location on bottom
   display: grid;
   grid-template-columns: 1fr; 
+  font-family:  'Lilita One', cursive;
 
   // all items in center
   .faveLink {
@@ -168,16 +169,11 @@ background-color: #ffc0ad;
   .favoritePetCard {
     display: flex;
     flex-direction: column;
-   
-    // justify-self: center;
-    // justify-content: center;
-    // list-style-type: none;
-    // background-color: #8bd3dd;
     padding: 10px; 
-    // fit card to image and text
     width: 400px;
     padding: 10px;
     margin: 10px;
+    justify-self: center;
     background-color: #f3d2c1;
     border-width: 5px;
     border-style: solid;
@@ -330,7 +326,7 @@ ul {
     text-align: center;
     color: #001858;
   .showPetName {
-    // grid-template-areas: 1;
+
     justify-content: center;
   justify-self: center;
   color: #140d0b;
@@ -374,8 +370,42 @@ ul {
   
 }
 }
+/////////////
+/// FAVES WIDE
+/////////////
+@media only screen and (min-width: 660px) {
+
+  ul {
+    .favoritePetsContainer {
+      
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      
+      .favoritePetCard {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-width: 600px; 
+        min-height: 400px;
+        }
+        .favoritePic {
+          min-height: 300px;
+        }
+        .favoriteAge, .favoriteGender, 
+        .favoriteBreed {
+          grid-column: 2 / span 1;
+        }
+        .deleteButton {
+          width: 100px;
+          justify-self: center;
+          align-self: end;
+        }
+      
+    }
+    
+  }
+}
 @media only screen and (min-width: 980px) {
-  /////////
+  /////////////////
   /// NAV WIDE
   //////////////////
 /// 
@@ -480,23 +510,46 @@ background-color: #ffc0ad;
     }
   }
 }
+
+  
 /////////////////
 /// SHOW WIDE
 ////////////////
 @media only screen and (min-width: 800px) {
 .showContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
 .showPet {
   // display: grid;
-  grid-column: 1 span 3;
+  min-width: 700px;
+  max-width: none;
+  grid-column: 1 / span 3;
+  padding: 10px;
   // flex-direction: column;
-  
+ 
+  .showPic, .showPetName, {
+    grid-column: 1 / span 1;
+    justify-self: start;
+    }
+    .showDescription {
+      width: 400px;
+      text-align: start;
+      margin: 5px;
+    }
+    .showAge, .showGender, .showBreed, .show.vid,
+    .showStatus, .showEmail, .showPhone, {
+      grid-column: 2 / span 1;
+    }
+  }
+}  
 }
 
-}
-}
+
+
+///////////////////
+/// SHOW SUPER WIDE
+/////////////////
 @media only screen and (min-width: 1400px) {
   
   
@@ -513,6 +566,11 @@ background-color: #ffc0ad;
 }
   
 }
+
+////////////////
+/// DARK MODE
+////////////////
+
 @media (prefers-color-scheme: dark) {
 body {
   background-color: #55423d;

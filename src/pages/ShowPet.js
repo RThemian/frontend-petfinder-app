@@ -21,19 +21,19 @@ const ShowPet = (props) => {
       <h1 className='showPetName'>{pet.name}</h1>
 
       <img className='showPic' src={pet.photos[0].medium} alt={pet.name} />
-      <p>{pet.description}</p>
-      <p>{pet.breed}</p>
-      <p>{pet.age}</p>
-      <p>{pet.gender}</p>
-      <p>{pet.video}</p>
-      <p>{pet.status}</p>
-      <p>{pet.contact.email}</p>
-      <p>{pet.contact.phone}</p>
+      <p className='showDescription'>{pet.description}</p>
+      <p className='showBreed'>{pet.breed}</p>
+      <p className='showAge'>{pet.age}</p>
+      <p className='showGender'>{pet.gender}</p>
+      <p className='showVid'>{pet.video}</p>
+      <p className='showStatus'>{pet.status}</p>
+      <p className='showEmail'>{pet.contact.email}</p>
+      <p className='showPhone'>{pet.contact.phone}</p>
        <div>
         <a href={pet.url}>
-          <h3>Link to more information</h3>
+          <h3 className="showLink">Link to more information</h3>
         </a>
-      <p>
+      <p className='showAddress'>
         {pet.contact.address.address1} 
         {pet.contact.address.city},{" "} 
         {pet.contact.address.state}{" "}

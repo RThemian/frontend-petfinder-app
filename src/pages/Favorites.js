@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom';
 const Favorites = (props) => {
     const pets = props.favoritePets;
     console.log(props)
+
     return pets.map((pet) => (
-        <div key={pet._id} className="favoritePetsContainer">
+    <>
+        <ul>
+      <div key={pet._id} className="favoritePetsContainer">
           {/* <div className="favoritePetRow"> */}
           
           <div className='favoritePetCard'>
@@ -21,6 +24,8 @@ const Favorites = (props) => {
           </div>
           </div>
           
+          </ul>
+    </>
         // </div>
       ))
     }
