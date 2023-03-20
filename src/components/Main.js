@@ -11,7 +11,7 @@ const Main = ({user}) => {
   const [animals, setAnimals] = useState([]);
   const [animalType, setAnimalType] = useState('dog');
   const [selectedPet, setSelectedPet] = useState({});
-  const API_URL = "https://petfinder-2.herokuapp.com";
+  const API_URL = "https://petfinder-2.herokuapp.com/petfinder";
   const [dbAnimals, setDbAnimals] = useState([]);
 
   const removeSpecChar = (props) => {
