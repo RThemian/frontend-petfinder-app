@@ -618,7 +618,7 @@ background-color: #ffc0ad;
 .showContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  // grid-template-rows: 1fr 1fr;
   .showPet {
     display: grid;
   min-width: 700px;
@@ -633,12 +633,13 @@ background-color: #ffc0ad;
     justify-self: start;
   }
   .showPetName {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1;
   }
   .showDescription {
+    grid-column: 1 / span 1;
     grid-row: 2;
-    width: 400px;
+    width: 300px;
     text-align: start;
     margin: 5px;
     padding: 5px;
