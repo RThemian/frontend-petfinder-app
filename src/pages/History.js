@@ -1,15 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const History = ({ dbAnimals, setDbAnimals, setSelectedPet, getAnimalsData }) => {
-  useEffect(() => {
-    getAnimalsData();
-    console.log("dbAnimals", dbAnimals)
-  }, []);
+  
+    if(dbAnimals.length === 0) {
+        getAnimalsData();
+    }
+  
+
+
 
   return (
     <div className="displayPetDiv">
-      <h1 className="available">Database Animals</h1>
+      <h1 className="available">Previously Viewed Animals</h1>
       <ul>
         {dbAnimals?.map(dbAnimal => (
           <li className="indexCard" key={dbAnimal._id}>

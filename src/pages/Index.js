@@ -123,7 +123,7 @@ function Index({
       .catch(error => {
         console.error(error);
       });
-  }, [animalType, setAnimals, zipcode]);
+  }, [animalType, setAnimals, zipcode, user]);
 
   useEffect(() => {
     if (isZipcodeProvided && /^\d{5}$/.test(zipcode)) {
@@ -183,7 +183,6 @@ function Index({
       <div className='display-pet-div'>
       <DisplayPets deletePets={deletePets} dbAnimals= {dbAnimals} animalType ={animalType} animals={animals} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />
       </div>
-        <button onClick={()=>getAnimalsData()}>Get Pets from the Database</button>
       </div>
 
    
