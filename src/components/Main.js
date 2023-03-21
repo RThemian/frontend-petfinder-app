@@ -3,6 +3,8 @@ import {Routes, Route} from "react-router-dom";
 import Index from "../pages/Index";
 import ShowPet from "../pages/ShowPet";
 import Favorites from "../pages/Favorites"
+import History from "../pages/History"
+import Header from "./Header";
 
 
 
@@ -11,7 +13,7 @@ const Main = ({user}) => {
   const [animals, setAnimals] = useState([]);
   const [animalType, setAnimalType] = useState('dog');
   const [selectedPet, setSelectedPet] = useState({});
-  const API_URL = "https://petfinder-2.herokuapp.com/petfinder";
+  const API_URL = "http://localhost:5001/petfinder"
   const [dbAnimals, setDbAnimals] = useState([]);
 
   const removeSpecChar = (props) => {
@@ -157,6 +159,8 @@ const Main = ({user}) => {
 
 
   return (
+    <>
+    <Header user={user} getAnimalsData={getAnimalsData} />
     <main>
       <Routes>
         <Route path="/" 
@@ -191,8 +195,18 @@ const Main = ({user}) => {
         deletePets={deletePets}
 
         />} />
+        <Route path="/history"
+        element={
+        <History dbAnimals={dbAnimals}
+        setDbAnimals={setDbAnimals}
+        selectedPet={selectedPet}
+        setSelectedPet={setSelectedPet}
+        getAnimalsData={getAnimalsData}
+        />} />
+
       </Routes>
     </main>
+    </>
   )
 }
 

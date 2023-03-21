@@ -112,6 +112,10 @@ function Index({
 
         setAnimals(filteredAnimals.slice(0, 19));
        
+        // only run saveAnimalsData if user is logged in
+        if (user) {
+          saveAnimalsData(filteredAnimals.slice(0, 19));
+        }
         
         // saveAnimalsData(filteredAnimals.slice(0, 19));
 
