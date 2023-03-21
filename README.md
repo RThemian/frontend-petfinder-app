@@ -1,6 +1,6 @@
 ## PETFINDER PURPOSE APP
 
-By *Aly*, *Brad*, *Tomas*, and *Zack*.
+*By Aly, Brad, Tomas, and Zack.*
 
 ### WE CONNECT PETS TO PEOPLE
 
