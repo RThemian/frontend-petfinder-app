@@ -119,10 +119,9 @@ cursor: pointer;
 /////////////////
 
  .animals-button {
-  padding-top: 5rem;
-  margin-left: 6rem;
-  color:#001858
-
+  width: 100%;
+  text-align:center;
+  padding: 2rem;
  }
 
  .animals-button label {
@@ -251,11 +250,56 @@ cursor: pointer;
 ///MAIN INDEX
 ////////////////
 
+.location-search {
+  width: 100%;
+    text-align:center;
+  
+ 
+}
+
+.input-zipcode {
+  border: 3px solid;
+  border-color: #e37272;
+  background-color:white;
+  padding: .5rem;
+  font-size: .9rem;
+  font-family: inherit;
+  border-style: dotted;
+  border-radius: 4px;
+}
+
+.button-search {
+  margin-top: 35px;
+  background-color: white;
+  border: 1px solid rgb(142, 232, 255);
+  line-height: 0;
+  font-size: 15px;
+  padding: 15px 12px ;
+  border-radius: 10px;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+  margin-left: .5rem;
+  font-weight: bold;
+}
+
+.button-search:hover {
+  background-color: #eccabc;
+  transform: 0.7s;
+}
+
+.button-search:focus {
+  outline-color: transparent;
+  outline-style: solid;
+  box-shadow:  0 0 0 2px #6554fd;
+}
+
 .available {
   display: flex;
   justify-content: center;
   justify-self: center;
-  color: #140d0b;
+  color: #172c66;
 }
 
 ul {

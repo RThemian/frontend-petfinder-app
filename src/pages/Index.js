@@ -136,9 +136,9 @@ function Index({
       <div className='location-search' >
       
       <form onSubmit={handleZipcodeSubmit}>
-        <label htmlFor="zipcode">Zipcode:</label>
-        <input type="text" id="zipcode" name="zipcode" value={zipcode} onChange={handleZipcodeChange} />
-        <button type="submit" >Search</button>
+        {/* <label htmlFor="zipcode">Zipcode:</label> */}
+        <input className='input-zipcode' type="text" id="zipcode" name="zipcode" value={zipcode} onChange={handleZipcodeChange} placeholder="What's Your ZipCode"/>
+        <button className='button-search' type="submit" >Search</button>
       </form>
       <div className="location-error"></div>
       </div>
