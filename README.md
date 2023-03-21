@@ -4,7 +4,7 @@
 
 ### WE CONNECT PETS TO PEOPLE
 
-Try it [here](jade-beignet-5f7972.netlify.app/)
+Try it [here](jade-beignet-5f7972.netlify.app/).
 
 
 ### How it works
