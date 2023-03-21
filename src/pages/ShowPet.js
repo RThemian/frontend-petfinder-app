@@ -19,16 +19,18 @@ const ShowPet = (props) => {
 
     <div className='showPet'>
       <h1 className='showPetName'>{pet.name}</h1>
-
+      
       <img className='showPic' src={pet.photos[0].medium} alt={pet.name} />
       <p className='showDescription'>{pet.description}</p>
-      <p className='showBreed'>{pet.breed}</p>
-      <p className='showAge'>{pet.age}</p>
-      <p className='showGender'>{pet.gender}</p>
-      <p className='showVid'>{pet.video}</p>
-      <p className='showStatus'>{pet.status}</p>
-      <p className='showEmail'>{pet.contact.email}</p>
-      <p className='showPhone'>{pet.contact.phone}</p>
+      <ul className='showInfoContainer' > 
+
+      <p className='showBreed'><b>Breed: </b> {pet.breed ? pet.breed : 'N/A'}</p>
+      <p className='showAge'><b>Age: </b> {pet.age ? pet.age : 'Age unknown'}</p>
+      <p className='showGender'><b>Gender: </b> {pet.gender ? pet.gender : 'Gender not specified' }</p>
+      <p className='showStatus'><b>Status: </b>{pet.status ? pet.status : 'Status not specified' }</p>
+      <p className='showEmail'><b>Email: </b>{pet.contact.email ? pet.contact.email : 'Email not provided'}</p>
+      <p className='showPhone'><b>Phone: </b>{pet.contact.phone ? pet.contact.phone : 'Phone not provided'}</p>
+      </ul>
        <div>
         <a href={pet.url}>
           <h3 className="showLink">Link to more information</h3>
