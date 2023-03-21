@@ -1,5 +1,6 @@
 import { useState, useCallback} from "react";
-import {Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import Index from "../pages/Index";
 import ShowPet from "../pages/ShowPet";
 import Favorites from "../pages/Favorites"
@@ -13,7 +14,7 @@ const Main = ({user}) => {
   const [animals, setAnimals] = useState([]);
   const [animalType, setAnimalType] = useState('dog');
   const [selectedPet, setSelectedPet] = useState({});
-  const API_URL = "http://localhost:5001/petfinder"
+  const API_URL = "https://petfinder-2.herokuapp.com/petfinder"
   const [dbAnimals, setDbAnimals] = useState([]);
 
   const removeSpecChar = (props) => {
@@ -159,59 +160,58 @@ const Main = ({user}) => {
 
 
   return (
-    <>
-    <Header 
-    user={user} 
-    getAnimalsData={getAnimalsData}
-    getPets={getPets} 
-     />
-    <main>
-      <Routes>
-        <Route path="/" 
-        element={
-        <Index animals ={animals} 
-        setAnimals={setAnimals} 
-        animalType={animalType} 
-        setAnimalType={setAnimalType} 
-        selectedPet={selectedPet}
-        setSelectedPet={setSelectedPet}
-        getPets={getPets}
-        user = {user}
-        deletePets={deletePets}
-        favoritePets={favoritePets}
-        removeSpecChar={removeSpecChar}
-        saveAnimalsData={saveAnimalsData}
-        getAnimalsData={getAnimalsData}
-        dbAnimals={dbAnimals}
-        />} />
-        <Route path="/pet/:id"
-        element={
-        <ShowPet animals={animals} 
-        selectedPet={selectedPet} 
-        createPets={createPets} 
-        deletePets={deletePets} 
-        />} />
-        <Route path="/favorites"
-        element={
-        <Favorites favoritePets={favoritePets}
-        selectedPet={selectedPet}
-        setSelectedPet={setSelectedPet}
-        deletePets={deletePets}
+      <>
+        <Router>
+          <Header user={user} getAnimalsData={getAnimalsData} getPets={getPets} />
+          <main>
+            <Route exact path="/">
+              <Index
+                animals={animals}
+                setAnimals={setAnimals}
+                animalType={animalType}
+                setAnimalType={setAnimalType}
+                selectedPet={selectedPet}
+                setSelectedPet={setSelectedPet}
+                getPets={getPets}
+                user={user}
+                deletePets={deletePets}
+                favoritePets={favoritePets}
+                removeSpecChar={removeSpecChar}
+                saveAnimalsData={saveAnimalsData}
+                getAnimalsData={getAnimalsData}
+                dbAnimals={dbAnimals}
+              />
+            </Route>
+            <Route path="/pet/:id">
+              <ShowPet
+                animals={animals}
+                selectedPet={selectedPet}
+                createPets={createPets}
+                deletePets={deletePets}
+              />
+            </Route>
+            <Route path="/favorites">
+              <Favorites
+                favoritePets={favoritePets}
+                selectedPet={selectedPet}
+                setSelectedPet={setSelectedPet}
+                deletePets={deletePets}
+              />
+            </Route>
+            <Route path="/history">
+              <History
+                dbAnimals={dbAnimals}
+                setDbAnimals={setDbAnimals}
+                selectedPet={selectedPet}
+                setSelectedPet={setSelectedPet}
+                getAnimalsData={getAnimalsData}
+              />
+            </Route>
+          </main>
+        </Router>
+      </>
+    );
+    
+};
 
-        />} />
-        <Route path="/history"
-        element={
-        <History dbAnimals={dbAnimals}
-        setDbAnimals={setDbAnimals}
-        selectedPet={selectedPet}
-        setSelectedPet={setSelectedPet}
-        getAnimalsData={getAnimalsData}
-        />} />
-
-      </Routes>
-    </main>
-    </>
-  )
-}
-
-export default Main
+export default Main;
