@@ -23,7 +23,9 @@ const History = ({ dbAnimals, setDbAnimals, setSelectedPet, getAnimalsData }) =>
             {/* published_at transformed into MM-DD-YYYY */}
             <p className="indexAge">{dbAnimal.published_at.slice(5,7) + "-" + dbAnimal.published_at.slice(8,10) + "-" + dbAnimal.published_at.slice(0,4)}</p>
             <p className="indexAge">{dbAnimal.age}</p>
-            <p className="indexLocation">{dbAnimal.contact.address.city}, {dbAnimal.contact.address.state}</p>
+            <p className="indexLocation">{dbAnimal.contact.address.city}, {dbAnimal.contact.address.state} {dbAnimal.contact.address.postcode}</p>
+          
+
           </li>
         ))}
       </ul>

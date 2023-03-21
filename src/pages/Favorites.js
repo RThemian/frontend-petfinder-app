@@ -19,6 +19,8 @@ const Favorites = (props) => {
           <h4 className='favoriteAge'>{pet.age}</h4>{"    "}
           <h4 className='favoriteGender'> {pet.gender}</h4>{"    "}
           <h4 className='favoriteBreed' >{pet.breeds ? pet.breeds.primary:""}</h4> 
+          {/* add location */}
+          <h4 className='favoriteBreed'>{pet.contact.address.city}, {pet.contact.address.state} {pet.contact.postcode}</h4>
           </Link>
           <button className="deleteButton" onClick={() => props.deletePets(pet._id)}>Delete</button>
           </div>
