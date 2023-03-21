@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useCallback, useState } from 'react';
-import { Link } from 'react-router-dom';
 import DisplayPets from './../components/DisplayPets';
 
 async function getZipcode() {
@@ -175,9 +174,9 @@ function Index({
         />
         <label htmlFor="rabbit">Rabbit</label>
         
-       <Link to='/favorites' className='favorites-link' onClick={()=>getPets()}>
+       {/* <Link to='/favorites' className='favorites-link' onClick={()=>getPets()}>
             <div className="favorites">View Favorites</div>
-        </Link>
+        </Link> */}
       </div>
       
       <div className='display-pet-div'>

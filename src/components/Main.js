@@ -160,7 +160,11 @@ const Main = ({user}) => {
 
   return (
     <>
-    <Header user={user} getAnimalsData={getAnimalsData} />
+    <Header 
+    user={user} 
+    getAnimalsData={getAnimalsData}
+    getPets={getPets} 
+     />
     <main>
       <Routes>
         <Route path="/" 

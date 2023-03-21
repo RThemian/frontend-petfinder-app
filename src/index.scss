@@ -90,8 +90,20 @@ background-color: #ffc0ad;
       border: none;
 border-radius: 6px;
 background-color: #ffc0ad;
+   
+  }
+
+
+    .row-header-spaced {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px;
+      
 
     }
+
+// style Link with onhover
+
 
 
 ////////////////
@@ -419,13 +431,18 @@ ul {
     1fr
     2fr
     1fr;  
+     
       .headerDiv {
        
         grid-column: 1fr 2fr 1fr;
         font-family: 'Lilita One', cursive;
-      
+        // on hover, change color to #ffc0ad
+
         // justify-self: flex-start;
         // align-self:flex-start;
+
+        
+
       }
       ul {
         display: flex;
@@ -528,7 +545,7 @@ background-color: #ffc0ad;
   padding: 10px;
   // flex-direction: column;
  
-  .showPic, .showPetName, {
+  .showPic, .showPetName {
     grid-column: 1 / span 1;
     justify-self: start;
     }
@@ -538,12 +555,13 @@ background-color: #ffc0ad;
       margin: 5px;
     }
     .showAge, .showGender, .showBreed, .show.vid,
-    .showStatus, .showEmail, .showPhone, {
+    .showStatus, .showEmail, .showPhone {
       grid-column: 2 / span 1;
     }
   }
 }  
 }
+
 
 
 

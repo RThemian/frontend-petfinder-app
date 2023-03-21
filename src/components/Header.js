@@ -3,12 +3,21 @@ import {Link} from 'react-router-dom';
 
 
 
-const Header = ({user, getAnimalData}) => {
+const Header = ({user, getAnimalData, getPets}) => {
   return (
     <nav className='nav'>
+        <div className='row-header-spaced'>
+
         <Link to='/' className="headerDiv" >
             <div  >Pet Purpose App</div>
         </Link>
+        <Link to='/favorites' className='headerDiv' onClick={()=>getPets()}>
+            <div className="favorites">View Favorites</div>
+        </Link>
+        <Link to='/history' className='headerDiv' onClick = {()=> getAnimalData() } >
+            <div className="history">View History</div>
+        </Link>
+        </div>
 <ul className='user-header'>
 
 
@@ -16,12 +25,7 @@ const Header = ({user, getAnimalData}) => {
     {user ? (
         <>
         {/* add link to Favorites.js page */}
-        <Link to='/favorites' className='favorites-link' >
-            <div className="favorites">View Favorites</div>
-        </Link>
-        <Link to='/history' className='history-link' onClick = {()=> getAnimalData() } >
-            <div className="history">View History</div>
-        </Link>
+        
 
 
             <li className="welcome">Welcome, {user.displayName}
