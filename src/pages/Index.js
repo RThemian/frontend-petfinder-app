@@ -122,7 +122,7 @@ function Index({
       .catch(error => {
         console.error(error);
       });
-  }, [animalType, setAnimals, zipcode, user]);
+  }, [animalType, setAnimals, zipcode, user, saveAnimalsData]);
 
   useEffect(() => {
     if (isZipcodeProvided && /^\d{5}$/.test(zipcode)) {

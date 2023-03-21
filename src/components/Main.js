@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState, useCallback} from "react";
 import {Routes, Route} from "react-router-dom";
 import Index from "../pages/Index";
 import ShowPet from "../pages/ShowPet";
@@ -59,13 +59,13 @@ const Main = ({user}) => {
     }
   }
 
-// saves animals data from petFinder API to mongoDB 
-  const saveAnimalsData = async (data) => {
-    if(user) {
- try {
-   
-      console.log("USER",user)
-      
+ 
+
+  // saves animals data from petFinder API to mongoDB 
+  const saveAnimalsData = useCallback(async (data, user) => {
+    if (user) {
+      try {
+        console.log("USER", user);
         console.log("saveAnimalsData FRONTEND USER called");
         const token = await user.getIdToken();
         await fetch(`${API_URL}/save_animal_data`, {
@@ -77,12 +77,12 @@ const Main = ({user}) => {
           body: JSON.stringify(data), // data should be an array of animal objects
         });
         console.log("Animals data saved successfully");
-      
-    } catch (error) {
-      console.error("Error saving animal data: ", error);
+      } catch (error) {
+        console.error("Error saving animal data: ", error);
+      }
     }
-  } 
-  };
+  }, []);
+  
   
   // get animals data from mongoDB
   const getAnimalsData = async () => {
